@@ -1,6 +1,7 @@
-from turtle import Turtle, Screen
+from turtle import Screen
 from snake import Snake
 import time
+
 scr = Screen()
 scr.setup(width=600, height=600)
 scr.bgcolor("black")
