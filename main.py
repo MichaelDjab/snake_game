@@ -10,6 +10,13 @@ scr.tracer(0)
 
 snake = Snake()
 
+scr.listen()
+scr.onkey(snake.up, "Up")
+scr.onkey(snake.down, "Down")
+scr.onkey(snake.left, "Left")
+scr.onkey(snake.right, "Right")
+
+
 end = False
 while not end:
     scr.update()
@@ -18,3 +25,4 @@ while not end:
 
 
 scr.exitonclick()
+
