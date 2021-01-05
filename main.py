@@ -1,6 +1,7 @@
 from turtle import Screen
 from snake import Snake
 import time
+from apple import Apple
 
 scr = Screen()
 scr.setup(width=600, height=600)
@@ -9,6 +10,7 @@ scr.title("SNAKE")
 scr.tracer(0)
 
 snake = Snake()
+apple = Apple()
 
 scr.listen()
 scr.onkey(snake.up, "Up")
