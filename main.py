@@ -5,7 +5,7 @@ from apple import Apple
 from scoreboard import Scoreboard
 
 scr = Screen()
-scr.setup(width=600, height=600, startx=0, starty=0)
+scr.setup(width=600, height=600)
 scr.bgcolor("black")
 scr.title("SNAKE")
 scr.tracer(0)
@@ -32,6 +32,7 @@ while not end:
         apple.refresh()
         scoreboard.score += 1
         scoreboard.write_score()
+        snake.extend()
 
     # Collide with wall
     x = snake.segments[0].xcor()
@@ -39,9 +40,6 @@ while not end:
     if x > 280 or x < -290 or y > 290 or y < -280:
         scoreboard.game_over()
         end = True
-
-
-
 
 scr.exitonclick()
 
