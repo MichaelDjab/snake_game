@@ -5,7 +5,7 @@ from apple import Apple
 from scoreboard import Scoreboard
 
 scr = Screen()
-scr.setup(width=600, height=600)
+scr.setup(width=600, height=600, startx=0, starty=0)
 scr.bgcolor("black")
 scr.title("SNAKE")
 scr.tracer(0)
@@ -27,11 +27,18 @@ while not end:
     time.sleep(0.1)
     snake.move()
 
-    # Apple eaten
+    # Eat apple
     if snake.segments[0].distance(apple) < 5:
         apple.refresh()
         scoreboard.score += 1
         scoreboard.write_score()
+
+    # Collide with wall
+    x = snake.segments[0].xcor()
+    y = snake.segments[0].ycor()
+    if x > 280 or x < -290 or y > 290 or y < -280:
+        scoreboard.game_over()
+        end = True
 
 
 
