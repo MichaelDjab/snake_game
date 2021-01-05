@@ -28,11 +28,12 @@ while not end:
     snake.move()
 
     # Eat apple
-    if snake.segments[0].distance(apple) < 5:
-        apple.refresh()
-        scoreboard.score += 1
-        scoreboard.write_score()
-        snake.extend()
+    for segment in snake.segments:
+        if segment.distance(apple) < 5:
+            apple.refresh()
+            scoreboard.score += 1
+            scoreboard.write_score()
+            snake.extend()
 
     # Collide with wall
     x = snake.segments[0].xcor()
@@ -40,6 +41,14 @@ while not end:
     if x > 280 or x < -290 or y > 290 or y < -280:
         scoreboard.game_over()
         end = True
+
+    # Tail collisions
+    for segment in snake.segments:
+        if segment == snake.segments[0]:
+            pass
+        elif snake.segments[0].distance(segment) < 10:
+            end = True
+            scoreboard.game_over()
 
 scr.exitonclick()
 
