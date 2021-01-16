@@ -31,7 +31,7 @@ while not end:
     for segment in snake.segments:
         if segment.distance(apple) < 5:
             apple.refresh()
-            scoreboard.score += 1
+            scoreboard.increase_score()
             scoreboard.write_score()
             snake.extend()
 
@@ -39,14 +39,14 @@ while not end:
     x = snake.segments[0].xcor()
     y = snake.segments[0].ycor()
     if x > 280 or x < -290 or y > 290 or y < -280:
-        scoreboard.game_over()
-        end = True
+        scoreboard.reset()
+        snake.reset()
 
     # Tail collisions
     for segment in snake.segments[1:]:
         if snake.segments[0].distance(segment) < 10:
-            end = True
-            scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
 
 scr.exitonclick()
 
