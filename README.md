@@ -9,12 +9,10 @@ The score is displayed on the top-left and the highest score achieved so far is 
 Enjoy the game! 
 
 <img src="snake1.png" 
-alt="Markdown Monster icon" 
 style="float: left; 
 margin-right: 15px;" />​
 
 
 <img src="snake16.png" 
-alt="Markdown Monster icon" 
 style="float: left; 
 margin-right: 15px;" />​
